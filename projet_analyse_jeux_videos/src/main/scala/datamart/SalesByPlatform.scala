@@ -12,19 +12,19 @@ object SalesByPlatform {
       .parquet("../lakehouse/silver")
   }
 
-  def compute(df: DataFrame): DataFrame = {
+  def transform(df: DataFrame): DataFrame = {
     df.groupBy("sales_platform")
       .agg(sum("global_sales").as("total_sales"))
       .orderBy(desc("total_sales"))
   }
 
   def write(result: DataFrame): Unit = {
-    result.write.mode("overwrite").parquet("../lakehouse/gold/SalesByPlatform")
+    result.write.mode("overwrite").parquet("../lakehouse/gold/SalesByPlatform/")
   }
 
   def run(spark: SparkSession): Unit = {
     val df = readParquet(spark)
-    val result = compute(df)
+    val result = transform(df)
     write(result)
   }
 }

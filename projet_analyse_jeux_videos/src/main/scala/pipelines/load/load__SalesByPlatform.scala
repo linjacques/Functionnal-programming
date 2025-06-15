@@ -3,7 +3,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 import java.util.Properties
 import com.typesafe.config.ConfigFactory
 
-object ToPostgres {
+object load__SalesByPlatform {
 
   def readParquet(spark: SparkSession, parquetPath: String): DataFrame = {
     spark.read.parquet(parquetPath)
