@@ -5,7 +5,6 @@ import org.apache.spark.sql.functions.{col, lower, trim, substring}
 object silver {
   def silver_layer(spark: SparkSession): Unit = {
 
-
     val df_sales = spark.read.parquet("../lakehouse/bronze/vgsales")
     val df_info = spark.read.parquet("../lakehouse/bronze/video_games")
 

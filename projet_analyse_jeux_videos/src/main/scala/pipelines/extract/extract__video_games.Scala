@@ -12,7 +12,7 @@ object ExtractFromPostgres {
     val user = config.getString("postgres.user")
     val password = config.getString("postgres.password")
     val table = config.getString("postgres.table")
-
+  
     spark.read
       .format("jdbc")
       .option("url", url)
