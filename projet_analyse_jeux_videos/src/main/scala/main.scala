@@ -10,7 +10,7 @@ object Main {
   def main(args: Array[String]): Unit = {
 
     val spark = SparkSession.builder()
-      .appName("VideoGameETL")
+      .appName("analyse jeux-vidéos")
       .master("local[*]")
       .config("spark.driver.host", "127.0.0.1")
       .getOrCreate()
